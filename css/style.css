@@ -1,0 +1,82 @@
+:root {
+    --premium-gold: #d4af37;
+    --platinum-cool: #e5e4e2;
+    --silver-bright: #c0c0c0;
+    --bronze-metallic: #cd7f32;
+    --dark-bg: #121212;
+    --card-bg: #1e1e1e;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar {
+    background-color: #000000 !important;
+    border-bottom: 2px solid var(--premium-gold);
+}
+
+.search-section {
+    background: linear-gradient(135deg, #1e1e1e 0%, #000000 100%);
+    border-radius: 15px;
+    border: 1px solid #333;
+}
+
+/* تنسيق كروت الأرقام VIP */
+.number-card {
+    background-color: var(--card-bg);
+    border: 1px solid #2d2d2d;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.number-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.15);
+}
+
+.phone-display {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* شارات التصنيفات */
+.badge-Platinum { background-color: var(--platinum-cool); color: #000; }
+.badge-Gold { background-color: var(--premium-gold); color: #000; }
+.badge-Silver { background-color: var(--silver-bright); color: #000; }
+.badge-Bronze { background-color: var(--bronze-metallic); color: #fff; }
+
+.pagination .page-link {
+    background-color: var(--card-bg);
+    color: #fff;
+    border-color: #333;
+}
+.pagination .page-item.active .page-link {
+    background-color: var(--premium-gold);
+    border-color: var(--premium-gold);
+    color: #000;
+}
+
+/* إجبار جداول الأرقام على الظهور بالتنسيق المعتدل من اليسار لليمين */
+table td, .number-display {
+    direction: ltr !important;
+    text-align: right; /* للحفاظ على محاذاة النص لليمين إذا كان الجدول عربياً */
+}
+
+/* هذا السطر يمنع المتصفح تماماً من إعادة ترتيب الأجزاء حتى لو احتوى الرقم على فراغات */
+table td, .number-display, .number-field {
+    direction: ltr !important;
+    unicode-bidi: bidi-override !important;
+    text-align: right; /* للحفاظ على محاذاة النص لجهة اليمين داخل الجدول العربي */
+    white-space: nowrap !important; /* يمنع انقسام الرقم على سطرين */
+}
+/* إصلاح مشكلة انعكاس الأرقام التي تحتوي على مسافات في الواجهة */
+.phone-display {
+    direction: ltr !important;
+    unicode-bidi: bidi-override !important;
+    display: inline-block;
+}
